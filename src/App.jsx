@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Galaxy from './Galaxy';
 import LogoLoop from './LogoLoop';
 import ClickSpark from './ClickSpark';
-import CircularGallery from './CircularGallery';
+import InfiniteMenu from './InfiniteMenu';
 import Dock from './Dock';
 import ShinyText from './ShinyText';
 import TextPressure from './TextPressure';
 import MagicBento from './MagicBento';
 import GlareHover from './GlareHover';
 import TiltedCard from './TiltedCard';
+import GlitchText from './GlitchText';
+import PillNav from './PillNav';
 import './App.css';
 import './CardShine.css';
 
@@ -142,42 +144,35 @@ function App() {
       </ClickSpark>
 
       {/* Navigation */}
-      <nav className="navbar">
-        <div className="container">
-          <div className="nav-brand">MAYANK SHARMA</div>
-          <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-            <li><a href="#services" onClick={(e) => handleSmoothScroll(e, '#services')}>Services</a></li>
-            <li><a href="#projects" onClick={(e) => handleSmoothScroll(e, '#projects')}>Projects</a></li>
-            <li><a href="#testimonials" onClick={(e) => handleSmoothScroll(e, '#testimonials')}>Testimonials</a></li>
-            <li><a href="#contact" onClick={(e) => handleSmoothScroll(e, '#contact')}>Contact</a></li>
-          </ul>
-          <div className={`nav-social ${mobileMenuOpen ? 'active' : ''}`}>
-            <a href="https://www.linkedin.com/in/mayankiitj/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-            <a href="mailto:ms1591934@gmail.com" className="btn-contact">Contact</a>
-          </div>
-          <button className={`mobile-menu-btn ${mobileMenuOpen ? 'active' : ''}`} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </nav>
+      <PillNav
+        logo="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='70' font-size='60' font-weight='bold' fill='%23ffffff'%3EMS%3C/text%3E%3C/svg%3E"
+        logoAlt="Mayank Sharma"
+        items={[
+          { href: '#about', label: 'About' },
+          { href: '#services', label: 'Services' },
+          { href: '#projects', label: 'Projects' },
+          { href: '#testimonials', label: 'Testimonials' },
+          { href: '#contact', label: 'Contact' }
+        ]}
+        baseColor="#ffffff"
+        pillColor="#000000"
+        hoveredPillTextColor="#ffffff"
+        onMobileMenuClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      />
 
       <div className="content-wrapper">
         {/* About Section */}
         <section id="about" className="about">
           <div className="container">
-            <div style={{ height: '120px', marginBottom: '2rem' }}>
-              <TextPressure 
-                text="MAYANK SHARMA"
-                textColor="#FFFFFF"
-                minFontSize={32}
-                width={false}
-                weight={true}
-                italic={true}
-                flex={true}
+            <div style={{ height: '120px', marginBottom: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <GlitchText 
+                speed={1}
+                enableShadows={true}
+                enableOnHover={false}
                 className="home-name"
-              />
+              >
+                MAYANK SHARMA
+              </GlitchText>
             </div>
             <div className="about-text about-intro">
               <div className="about-text">
@@ -247,18 +242,13 @@ function App() {
             <h2 className="section-title">Project Gallery</h2>
             <p className="section-description">Explore a curated collection of my work and creative projects.</p>
           </div>
-          <CircularGallery 
+          <InfiniteMenu 
             items={projectItems.map(p => ({
               image: 'https://picsum.photos/seed/' + encodeURIComponent(p.title) + '/800/600?grayscale',
-              text: p.title,
-              url: p.url
+              title: p.title,
+              description: '',
+              link: p.url
             }))}
-            bend={3}
-            textColor="#ffffff"
-            borderRadius={0.05}
-            font="bold 30px Figtree"
-            scrollSpeed={2}
-            scrollEase={0.05}
           />
         </section>
 
