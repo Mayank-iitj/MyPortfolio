@@ -12,10 +12,12 @@ import TiltedCard from './TiltedCard';
 import PillNav from './PillNav';
 import './App.css';
 import './CardShine.css';
+import Carousel from './Carousel';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+          { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg>, label: 'Innovations', onClick: () => document.querySelector('#innovations')?.scrollIntoView({ behavior: 'smooth' }) },
   // Skills/Technologies logos
   const skillLogos = [
     { node: <div className="skill-logo">Data Analysis</div>, title: 'Data Analysis' },
@@ -149,6 +151,7 @@ function App() {
         items={[
           { href: '#about', label: 'About' },
           { href: '#services', label: 'Services' },
+          { href: '#innovations', label: 'Innovations' },
           { href: '#projects', label: 'Projects' },
           { href: '#testimonials', label: 'Testimonials' },
           { href: '#contact', label: 'Contact' }
@@ -244,6 +247,59 @@ function App() {
               link: p.url
             }))}
           />
+        </section>
+
+        {/* Innovations Section */}
+        <section id="innovations" className="innovations-section">
+          <div className="container">
+            <h2 className="section-title">Innovations</h2>
+            <p className="section-description">Selected ML utilities and experiments with quick links.</p>
+            <div style={{ display: 'grid', placeItems: 'center', width: '100%', overflow: 'hidden' }}>
+              <Carousel
+                baseWidth={340}
+                loop={true}
+                autoplay={true}
+                pauseOnHover={true}
+                items={[
+                  {
+                    id: 1,
+                    title: 'Loan Approval Prediction',
+                    description: 'Python • Predictive modeling for loan eligibility',
+                    url: 'https://loanapproval-ms.streamlit.app/',
+                    icon: <svg className="carousel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H7l-4-4V5a2 2 0 0 1 2-2h6"/><path d="M17 3h4v4"/><path d="M16 8 21 3"/></svg>
+                  },
+                  {
+                    id: 2,
+                    title: 'imagine',
+                    description: 'Python • Face & emotion recognition',
+                    url: 'https://github.com/Mayank-iitj/imagine',
+                    icon: <svg className="carousel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09c0 .66.39 1.25 1 1.51.57.24 1.23.11 1.68-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06c-.44.45-.57 1.11-.33 1.68.26.61.85 1 1.51 1H21a2 2 0 0 1 0 4h-.09c-.66 0-1.25.39-1.51 1z"/></svg>
+                  },
+                  {
+                    id: 3,
+                    title: 'virtualmouse',
+                    description: 'Python • Hand-tracking virtual mouse',
+                    url: 'https://github.com/Mayank-iitj/virtualmouse',
+                    icon: <svg className="carousel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M12 6v4"/></svg>
+                  },
+                  {
+                    id: 4,
+                    title: 'customer-churn-prediction',
+                    description: 'Python • Streamlit app (live)',
+                    url: 'https://customer-churn-ms.streamlit.app/',
+                    icon: <svg className="carousel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M19 9l-5 5-4-4-3 3"/></svg>
+                  },
+                  {
+                    id: 5,
+                    title: 'FakeReview',
+                    description: 'Python • Fake review detection (live)',
+                    url: 'https://fakereview-ms.streamlit.app/',
+                    icon: <svg className="carousel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h9"/><path d="m16 3 5 5"/><path d="M17 8 9 16"/></svg>
+                  }
+                ]}
+              />
+            </div>
+          </div>
         </section>
 
         {/* Process Section */}
