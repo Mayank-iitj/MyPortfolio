@@ -170,7 +170,7 @@ function App() {
                   className="home-name"
                   colors={["#6366f1", "#22d3ee", "#8b5cf6", "#22d3ee", "#6366f1"]}
                   animationSpeed={10}
-                  showBorder={true}
+                  showBorder={false}
                 >
                   Mayank Sharma | Data Scientist & Full-Stack Developer
                 </GradientText>
