@@ -9,7 +9,7 @@ import TextPressure from './TextPressure';
 import MagicBento from './MagicBento';
 import GlareHover from './GlareHover';
 import TiltedCard from './TiltedCard';
-import ScrambledText from './ScrambledText';
+import DecryptedText from './DecryptedText';
 import PillNav from './PillNav';
 import './App.css';
 import './CardShine.css';
@@ -166,15 +166,17 @@ function App() {
           <div className="container">
             <div style={{ height: '120px', marginBottom: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <h1 style={{ margin: 0, lineHeight: 1 }} aria-label="Mayank Sharma | Data Scientist and Full-Stack Developer">
-                <ScrambledText
-                  className="home-name"
-                  radius={140}
-                  duration={0.9}
-                  speed={0.6}
-                  scrambleChars="*#$+" 
-                >
-                  Mayank Sharma | Data Scientist & Full-Stack Developer
-                </ScrambledText>
+                <DecryptedText
+                  text="Mayank Sharma | Data Scientist & Full-Stack Developer"
+                  speed={50}
+                  maxIterations={15}
+                  sequential={false}
+                  useOriginalCharsOnly={false}
+                  characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*"
+                  className="home-name-char"
+                  parentClassName="home-name"
+                  animateOn="hover"
+                />
               </h1>
             </div>
             <div className="about-text about-intro">
