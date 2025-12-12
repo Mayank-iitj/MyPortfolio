@@ -9,7 +9,7 @@ import TextPressure from './TextPressure';
 import MagicBento from './MagicBento';
 import GlareHover from './GlareHover';
 import TiltedCard from './TiltedCard';
-import GlitchText from './GlitchText';
+import GradientText from './GradientText';
 import PillNav from './PillNav';
 import './App.css';
 import './CardShine.css';
@@ -166,14 +166,14 @@ function App() {
           <div className="container">
             <div style={{ height: '120px', marginBottom: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <h1 style={{ margin: 0, lineHeight: 1 }} aria-label="Mayank Sharma | Data Scientist and Full-Stack Developer">
-                <GlitchText 
-                  speed={1}
-                  enableShadows={true}
-                  enableOnHover={false}
+                <GradientText
                   className="home-name"
+                  colors={["#6366f1", "#22d3ee", "#8b5cf6", "#22d3ee", "#6366f1"]}
+                  animationSpeed={10}
+                  showBorder={true}
                 >
                   Mayank Sharma | Data Scientist & Full-Stack Developer
-                </GlitchText>
+                </GradientText>
               </h1>
             </div>
             <div className="about-text about-intro">

@@ -262,10 +262,15 @@ body {
     display: block;
 }
 
-/* GlitchText size for name (keep hero balanced on mobile/desktop) */
-.glitch.home-name {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    letter-spacing: 0.12em;
+/* Hero name sizing for gradient text */
+.home-name {
+    display: inline-flex;
+}
+
+.home-name .text-content {
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    letter-spacing: 0.1em;
+    line-height: 1.05;
 }
 
 /* Extra spacing below name without affecting TextPressure component */
