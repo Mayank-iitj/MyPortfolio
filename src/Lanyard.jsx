@@ -49,8 +49,35 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef();
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
-  const { nodes, materials } = useGLTF(cardGLB);
-  const texture = useTexture(lanyardTex);
+  
+  // Safe asset loading with fallbacks
+  let nodes = null, materials = null;
+  try {
+    const gltf = useGLTF(cardGLB);
+    nodes = gltf.nodes;
+    materials = gltf.materials;
+  } catch (e) {
+    console.warn('Could not load card model, using fallback box:', e.message);
+  }
+
+  let texture = null;
+  try {
+    texture = useTexture(lanyardTex);
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+  } catch (e) {
+    console.warn('Could not load lanyard texture, using fallback color:', e.message);
+    const canvas = new OffscreenCanvas ? new OffscreenCanvas(256, 256) : document.createElement('canvas');
+    canvas.width = canvas.height = 256;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#FF6B35';
+    ctx.fillRect(0, 0, 256, 256);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '24px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('ID CARD', 128, 128);
+    texture = new THREE.CanvasTexture(canvas instanceof OffscreenCanvas ? canvas : canvas);
+  }
+  
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]));
   const [dragged, drag] = useState(false);
   const [hovered, hover] = useState(false);
@@ -86,7 +113,6 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
   });
 
   curve.curveType = 'chordal';
-  texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
   return (
     <>
@@ -105,17 +131,33 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
             onPointerUp={e => (e.target.releasePointerCapture(e.pointerId), drag(false))}
             onPointerDown={e => (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))))}
           >
-            <mesh geometry={nodes.card.geometry}>
-              <meshPhysicalMaterial
-                map={materials.base.map}
-                clearcoat={isMobile ? 0 : 1}
-                clearcoatRoughness={0.15}
-                roughness={0.9}
-                metalness={0.8}
-              />
-            </mesh>
-            <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
-            <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
+            {nodes && materials ? (
+              <>
+                <mesh geometry={nodes.card.geometry}>
+                  <meshPhysicalMaterial
+                    map={materials.base.map}
+                    clearcoat={isMobile ? 0 : 1}
+                    clearcoatRoughness={0.15}
+                    roughness={0.9}
+                    metalness={0.8}
+                  />
+                </mesh>
+                <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
+                <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
+              </>
+            ) : (
+              <mesh>
+                <boxGeometry args={[1.6, 2.25, 0.02]} />
+                <meshPhysicalMaterial
+                  map={texture}
+                  clearcoat={isMobile ? 0 : 1}
+                  clearcoatRoughness={0.15}
+                  roughness={0.9}
+                  metalness={0.8}
+                  color={0xffffff}
+                />
+              </mesh>
+            )}
           </group>
         </RigidBody>
       </group>
