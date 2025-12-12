@@ -165,14 +165,16 @@ function App() {
         <section id="about" className="about">
           <div className="container">
             <div style={{ height: '120px', marginBottom: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <GlitchText 
-                speed={1}
-                enableShadows={true}
-                enableOnHover={false}
-                className="home-name"
-              >
-                MAYANK SHARMA
-              </GlitchText>
+              <h1 style={{ margin: 0, lineHeight: 1 }} aria-label="Mayank Sharma | Data Scientist and Full-Stack Developer">
+                <GlitchText 
+                  speed={1}
+                  enableShadows={true}
+                  enableOnHover={false}
+                  className="home-name"
+                >
+                  Mayank Sharma | Data Scientist & Full-Stack Developer
+                </GlitchText>
+              </h1>
             </div>
             <div className="about-text about-intro">
               <div className="about-text">
