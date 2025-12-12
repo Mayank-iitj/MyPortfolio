@@ -435,6 +435,7 @@ function App() {
               </a>
             </div>
             <p className="cta-email">ms1591934@gmail.com</p>
+            <p className="cta-email">admin@mayyanks.app</p>
           </div>
         </section>
       </div>
