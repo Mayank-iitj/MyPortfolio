@@ -264,7 +264,8 @@ body {
 
 /* Hero name sizing with gradient effect */
 .home-name {
-    display: inline-flex;
+    display: block;
+    text-align: center;
     font-size: clamp(1.9rem, 4.8vw, 3.6rem);
     letter-spacing: 0.08em;
     line-height: 1.05;
@@ -273,6 +274,8 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /* Extra spacing below name without affecting TextPressure component */
