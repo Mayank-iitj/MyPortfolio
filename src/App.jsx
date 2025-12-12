@@ -183,9 +183,21 @@ function App() {
         <section id="about" className="about">
           <div className="container">
             <div style={{ height: '120px', marginBottom: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <h1 className="home-name" style={{ margin: 0, lineHeight: 1 }} aria-label="Mayank Sharma | Data Scientist and Full-Stack Developer">
-                Mayank Sharma | Data Scientist & Full-Stack Developer
-              </h1>
+              <div style={{ textAlign: 'center' }}>
+                <h1
+                  className="home-name"
+                  style={{ margin: 0, lineHeight: 1 }}
+                  aria-label="Mayank Sharma"
+                >
+                  MAYANK SHARMA
+                </h1>
+                <h2
+                  className="home-role"
+                  style={{ marginTop: '0.5rem', fontSize: '1.15rem', fontWeight: 600, color: 'var(--text-secondary)' }}
+                >
+                  Data Scientist &amp; Full-Stack Developer
+                </h2>
+              </div>
             </div>
             <div className="about-text about-intro">
               <div className="about-text">
