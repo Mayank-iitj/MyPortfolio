@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
+import ShinyText from './ShinyText';
 import './PillNav.css';
 
 const PillNav = ({
@@ -236,7 +237,7 @@ const PillNav = ({
               logoRef.current = el;
             }}
           >
-            <img src={logo} alt={logoAlt} ref={logoImgRef} />
+            <ShinyText text="MS" speed={3} className="ms-logo" />
           </Link>
         ) : (
           <a
@@ -248,7 +249,7 @@ const PillNav = ({
               logoRef.current = el;
             }}
           >
-            <img src={logo} alt={logoAlt} ref={logoImgRef} />
+            <ShinyText text="MS" speed={3} className="ms-logo" />
           </a>
         )}
 
