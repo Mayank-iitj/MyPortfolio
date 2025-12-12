@@ -9,6 +9,7 @@ import TextPressure from './TextPressure';
 import MagicBento from './MagicBento';
 import GlareHover from './GlareHover';
 import TiltedCard from './TiltedCard';
+import Lanyard from './Lanyard';
 import PillNav from './PillNav';
 import './App.css';
 import './CardShine.css';
@@ -244,6 +245,15 @@ function App() {
               link: p.url
             }))}
           />
+        </section>
+
+        {/* Lanyard Section */}
+        <section id="lanyard" className="lanyard-section">
+          <div className="container">
+            <h2 className="section-title">ID Lanyard</h2>
+            <p className="section-description">Interactive 3D lanyard with my ID card texture.</p>
+            <Lanyard transparent={true} />
+          </div>
         </section>
 
         {/* Process Section */}
