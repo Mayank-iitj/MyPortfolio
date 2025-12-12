@@ -16,6 +16,19 @@ import Carousel from './Carousel';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') return 'dark';
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  useEffect(() => {
+    const body = document.body;
+    if (theme === 'light') body.classList.add('theme-light');
+    else body.classList.remove('theme-light');
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   // Skills/Technologies logos
   const skillLogos = [
     { node: <div className="skill-logo">Data Analysis</div>, title: 'Data Analysis' },
@@ -34,6 +47,11 @@ function App() {
   const projectItems = [
     { title: 'GSCC (Game System Compatibility Checker)', url: 'https://iridescent-rolypoly-782dae.netlify.app/' },
     { title: 'Attendance, Salary, PF, and Performance Tracker', url: 'https://wmsms.vercel.app/' },
+          { icon: theme === 'light'
+              ? <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 3a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm9-4h-1a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2zM4 13H3a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2zm13.657 5.657-0.707-0.707a1 1 0 1 1 1.414-1.414l0.707 0.707a1 1 0 1 1-1.414 1.414zM5.636 6.343 4.93 5.636A1 1 0 0 1 6.343 4.22l0.707 0.707A1 1 0 0 1 5.636 6.343zm12.021-1.414-0.707 0.707A1 1 0 1 1 15.536 4.22l0.707-0.707a1 1 0 1 1 1.414 1.414zM7.05 18.364l-0.707 0.707A1 1 0 1 1 4.93 17.657l0.707-0.707A1 1 0 0 1 7.05 18.364z"/></svg>
+              : <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>,
+            label: theme === 'light' ? 'Light' : 'Dark',
+            onClick: toggleTheme },
     { title: 'Moody News', url: 'https://moody-news.vercel.app/' },
     { title: 'NEL (Named Entity Linking)', url: 'https://nel-by-ms.netlify.app/' },
     { title: 'QuantumShield Firewall', url: 'https://fire-wall.netlify.app/' },

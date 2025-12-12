@@ -27,6 +27,18 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Light theme overrides */
+body.theme-light {
+    --primary-bg: #ffffff;
+    --secondary-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --accent-color: #6366f1;
+    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --border-color: #e5e7eb;
+}
+
 .content-wrapper {
     position: relative;
     z-index: 1;
