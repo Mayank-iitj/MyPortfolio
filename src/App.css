@@ -262,10 +262,10 @@ body {
     display: block;
 }
 
-/* GlitchText size for MAYANK SHARMA */
+/* GlitchText size for name (keep hero balanced on mobile/desktop) */
 .glitch.home-name {
-    font-size: clamp(3rem, 8vw, 6rem);
-    letter-spacing: 0.15em;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: 0.12em;
 }
 
 /* Extra spacing below name without affecting TextPressure component */
