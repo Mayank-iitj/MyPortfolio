@@ -262,7 +262,7 @@ body {
     display: block;
 }
 
-/* Hero name sizing with gradient effect */
+/* Hero name sizing with black & white color */
 .home-name {
     display: block;
     text-align: center;
@@ -270,10 +270,7 @@ body {
     letter-spacing: 0.08em;
     line-height: 1.05;
     font-weight: 800;
-    background: linear-gradient(90deg, #6366f1 0%, #22d3ee 25%, #8b5cf6 50%, #22d3ee 75%, #6366f1 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #ffffff;
     max-width: 900px;
     margin: 0 auto;
 }
