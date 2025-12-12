@@ -267,7 +267,7 @@ body {
     display: inline-flex;
 }
 
-.home-name .text-content {
+.home-name p {
     font-size: clamp(1.9rem, 4.8vw, 3.6rem);
     letter-spacing: 0.08em;
     line-height: 1.05;

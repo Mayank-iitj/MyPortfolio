@@ -9,7 +9,7 @@ import TextPressure from './TextPressure';
 import MagicBento from './MagicBento';
 import GlareHover from './GlareHover';
 import TiltedCard from './TiltedCard';
-import GradientText from './GradientText';
+import ScrambledText from './ScrambledText';
 import PillNav from './PillNav';
 import './App.css';
 import './CardShine.css';
@@ -166,14 +166,15 @@ function App() {
           <div className="container">
             <div style={{ height: '120px', marginBottom: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <h1 style={{ margin: 0, lineHeight: 1 }} aria-label="Mayank Sharma | Data Scientist and Full-Stack Developer">
-                <GradientText
+                <ScrambledText
                   className="home-name"
-                  colors={["#6366f1", "#22d3ee", "#8b5cf6", "#22d3ee", "#6366f1"]}
-                  animationSpeed={10}
-                  showBorder={false}
+                  radius={140}
+                  duration={0.9}
+                  speed={0.6}
+                  scrambleChars="*#$+" 
                 >
                   Mayank Sharma | Data Scientist & Full-Stack Developer
-                </GradientText>
+                </ScrambledText>
               </h1>
             </div>
             <div className="about-text about-intro">
