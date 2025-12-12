@@ -262,7 +262,7 @@ body {
     display: block;
 }
 
-/* Hero name sizing for decrypted text */
+/* Hero name sizing with gradient effect */
 .home-name {
     display: inline-flex;
     font-size: clamp(1.9rem, 4.8vw, 3.6rem);
@@ -273,10 +273,6 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-}
-
-.home-name-char {
-    display: inline-block;
 }
 
 /* Extra spacing below name without affecting TextPressure component */

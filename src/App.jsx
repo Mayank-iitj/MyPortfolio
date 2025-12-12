@@ -9,7 +9,6 @@ import TextPressure from './TextPressure';
 import MagicBento from './MagicBento';
 import GlareHover from './GlareHover';
 import TiltedCard from './TiltedCard';
-import DecryptedText from './DecryptedText';
 import PillNav from './PillNav';
 import './App.css';
 import './CardShine.css';
@@ -165,18 +164,8 @@ function App() {
         <section id="about" className="about">
           <div className="container">
             <div style={{ height: '120px', marginBottom: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <h1 style={{ margin: 0, lineHeight: 1 }} aria-label="Mayank Sharma | Data Scientist and Full-Stack Developer">
-                <DecryptedText
-                  text="Mayank Sharma | Data Scientist & Full-Stack Developer"
-                  speed={50}
-                  maxIterations={15}
-                  sequential={false}
-                  useOriginalCharsOnly={false}
-                  characters="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*"
-                  className="home-name-char"
-                  parentClassName="home-name"
-                  animateOn="hover"
-                />
+              <h1 className="home-name" style={{ margin: 0, lineHeight: 1 }} aria-label="Mayank Sharma | Data Scientist and Full-Stack Developer">
+                Mayank Sharma | Data Scientist & Full-Stack Developer
               </h1>
             </div>
             <div className="about-text about-intro">
