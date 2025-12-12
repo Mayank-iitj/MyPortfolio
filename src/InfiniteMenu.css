@@ -3,6 +3,7 @@
   height: 600px;
   display: block;
   cursor: grab;
+  background: transparent;
 }
 
 #infinite-grid-menu-canvas:active {

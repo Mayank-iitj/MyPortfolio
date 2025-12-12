@@ -487,6 +487,7 @@ body {
 /* Gallery Section */
 .gallery-section {
     padding: 4rem 0;
+    background: var(--primary-bg);
 }
 
 .gallery-section .container {
