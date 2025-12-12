@@ -16,8 +16,6 @@ import Carousel from './Carousel';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-          { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg>, label: 'Innovations', onClick: () => document.querySelector('#innovations')?.scrollIntoView({ behavior: 'smooth' }) },
   // Skills/Technologies logos
   const skillLogos = [
     { node: <div className="skill-logo">Data Analysis</div>, title: 'Data Analysis' },
