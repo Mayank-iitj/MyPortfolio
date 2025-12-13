@@ -431,7 +431,7 @@ function App() {
             <h2 className="section-title">Client Reviews</h2>
             <p className="section-description">Real feedback from clients who trusted my design expertise to elevate their brands successfully.</p>
             <div className="review-buttons">
-              <a href="https://instagram.com/mayyanks" className="btn-primary" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
+              <a href="https://www.linkedin.com/in/mayankiitj" className="btn-primary" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
               <a href="#services" className="btn-secondary" onClick={(e) => handleSmoothScroll(e, '#services')}>See Services</a>
             </div>
             <div className="reviews-grid">
@@ -505,7 +505,7 @@ function App() {
           <div className="container">
             <h2>Curious about what we can create together? Let's bring something extraordinary to life!</h2>
             <div className="cta-buttons">
-              <a href="https://instagram.com/mayyanks" className="btn-primary" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
+              <a href="https://www.linkedin.com/in/mayankiitj" className="btn-primary" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
             </div>
             <div className="cta-social">
               <a href="https://instagram.com/mayyanks" target="_blank" rel="noopener noreferrer">
