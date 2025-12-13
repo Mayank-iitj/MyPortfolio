@@ -554,16 +554,7 @@ body.theme-light {
     padding: 4rem 0;
     background: var(--primary-bg);
 
-.resume-section {
-    padding: 8rem 0;
-}
-
-.resume-viewer {
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    overflow: hidden;
-    background: var(--card-bg);
-}
+/* Resume section removed; resume opens in new tab via CTA */
 }
 
 .gallery-section .container {

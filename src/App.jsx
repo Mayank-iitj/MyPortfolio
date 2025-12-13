@@ -205,7 +205,6 @@ function App() {
           { href: '#innovations', label: 'Innovations' },
           { href: '#projects', label: 'Projects' },
           { href: '#testimonials', label: 'Testimonials' },
-          { href: '#resume', label: 'Resume' },
           { href: '#contact', label: 'Contact' }
         ]}
         baseColor="#ffffff"
@@ -370,32 +369,7 @@ function App() {
           />
         </section>
 
-        {/* Resume Section */}
-        <section id="resume" className="resume-section">
-          <div className="container">
-            <h2 className="section-title">Resume</h2>
-            <p className="section-description">View the latest resume directly on the site. Download is also available.</p>
-            <div className="resume-viewer" role="region" aria-label="Embedded PDF resume viewer">
-              <object
-                data="/resume-ms.pdf"
-                type="application/pdf"
-                width="100%"
-                height="800px"
-              >
-                <iframe
-                  src="/resume-ms.pdf"
-                  title="Mayank Sharma Resume"
-                  width="100%"
-                  height="800px"
-                >
-                </iframe>
-              </object>
-            </div>
-            <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-              <a href="/resume-ms.pdf" className="btn-secondary" target="_blank" rel="noopener noreferrer">Download PDF</a>
-            </div>
-          </div>
-        </section>
+        {/* Resume Section intentionally removed; opens via View Resume in new tab */}
 
         {/* Innovations Section */}
         <section id="innovations" className="innovations-section">
