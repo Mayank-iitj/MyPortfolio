@@ -596,11 +596,12 @@ class InfiniteGridMenu {
   scaleFactor = 1.0;
   movementActive = false;
 
-  constructor(canvas, items, onActiveItemChange, onMovementChange, onInit = null) {
+  constructor(canvas, items, onActiveItemChange, onMovementChange, onInit = null, options = {}) {
     this.canvas = canvas;
     this.items = items || [];
     this.onActiveItemChange = onActiveItemChange || (() => {});
     this.onMovementChange = onMovementChange || (() => {});
+    this.options = options;
     this.#init(onInit);
   }
 
@@ -698,7 +699,7 @@ class InfiniteGridMenu {
     this.atlasSize = Math.ceil(Math.sqrt(itemCount));
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    const cellSize = 512;
+    const cellSize = 256;
 
     canvas.width = this.atlasSize * cellSize;
     canvas.height = this.atlasSize * cellSize;
@@ -755,6 +756,11 @@ class InfiniteGridMenu {
 
   #animate(deltaTime) {
     const gl = this.gl;
+    if (this.options?.reducedMotion) {
+      // Minimize motion effects
+      this.control.isPointerDown = false;
+      this.control.rotationVelocity = 0;
+    }
     this.control.update(deltaTime, this.TARGET_FRAME_DURATION);
 
     let positions = this.instancePositions.map(p => vec3.transformQuat(vec3.create(), p, this.control.orientation));
@@ -762,7 +768,7 @@ class InfiniteGridMenu {
     const SCALE_INTENSITY = 0.6;
     positions.forEach((p, ndx) => {
       const s = (Math.abs(p[2]) / this.SPHERE_RADIUS) * SCALE_INTENSITY + (1 - SCALE_INTENSITY);
-      const finalScale = s * scale;
+      const finalScale = (this.options?.reducedMotion ? scale : s * scale);
       const matrix = mat4.create();
       mat4.multiply(matrix, matrix, mat4.fromTranslation(mat4.create(), vec3.negate(vec3.create(), p)));
       mat4.multiply(matrix, matrix, mat4.targetTo(mat4.create(), [0, 0, 0], p, [0, 1, 0]));
@@ -776,7 +782,7 @@ class InfiniteGridMenu {
     gl.bufferSubData(gl.ARRAY_BUFFER, 0, this.discInstances.matricesArray);
     gl.bindBuffer(gl.ARRAY_BUFFER, null);
 
-    this.smoothRotationVelocity = this.control.rotationVelocity;
+    this.smoothRotationVelocity = this.options?.reducedMotion ? 0 : this.control.rotationVelocity;
   }
 
   #render() {
@@ -912,10 +918,16 @@ export default function InfiniteMenu({ items = [] }) {
   const canvasRef = useRef(null);
   const [activeItem, setActiveItem] = useState(null);
   const [isMoving, setIsMoving] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     let sketch;
+
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateReduced = () => setReducedMotion(!!media.matches);
+    updateReduced();
+    media.addEventListener?.('change', updateReduced);
 
     const handleActiveItem = index => {
       const itemIndex = index % items.length;
@@ -923,8 +935,13 @@ export default function InfiniteMenu({ items = [] }) {
     };
 
     if (canvas) {
-      sketch = new InfiniteGridMenu(canvas, items.length ? items : defaultItems, handleActiveItem, setIsMoving, sk =>
-        sk.run()
+      sketch = new InfiniteGridMenu(
+        canvas,
+        items.length ? items : defaultItems,
+        handleActiveItem,
+        setIsMoving,
+        sk => sk.run(),
+        { reducedMotion }
       );
     }
 
@@ -939,6 +956,7 @@ export default function InfiniteMenu({ items = [] }) {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      media.removeEventListener?.('change', updateReduced);
     };
   }, [items]);
 
@@ -953,13 +971,28 @@ export default function InfiniteMenu({ items = [] }) {
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-      <canvas id="infinite-grid-menu-canvas" ref={canvasRef} />
+      <canvas
+        id="infinite-grid-menu-canvas"
+        ref={canvasRef}
+        role="img"
+        aria-label="Interactive project gallery. Drag or move to explore projects; title and summary update below."
+      />
 
       {activeItem && (
         <>
-          <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>{activeItem.title}</h2>
+          <h2
+            className={`face-title ${isMoving ? 'inactive' : 'active'}`}
+            aria-live="polite"
+          >
+            {activeItem.title}
+          </h2>
 
-          <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}> {activeItem.description}</p>
+          <p
+            className={`face-description ${isMoving ? 'inactive' : 'active'}`}
+            aria-live="polite"
+          >
+            {activeItem.description}
+          </p>
 
           <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
             <p className="action-button-icon">&#x2197;</p>

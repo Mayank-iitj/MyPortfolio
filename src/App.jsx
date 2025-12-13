@@ -31,49 +31,82 @@ function App() {
   const toggleTheme = () => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   // Skills/Technologies logos
   const skillLogos = [
-    { node: <div className="skill-logo">Data Analysis</div>, title: 'Data Analysis' },
-    { node: <div className="skill-logo">Logo Design</div>, title: 'Logo Design' },
-    { node: <div className="skill-logo">UX Design</div>, title: 'UX Design' },
-    { node: <div className="skill-logo">Branding</div>, title: 'Branding' },
-    { node: <div className="skill-logo">AI Operations</div>, title: 'AI Operations' },
-    { node: <div className="skill-logo">Figma</div>, title: 'Figma' },
-    { node: <div className="skill-logo">Data Operation</div>, title: 'Data Operation' },
+    { node: <div className="skill-logo">AI Systems</div>, title: 'AI Systems' },
+    { node: <div className="skill-logo">Machine Learning</div>, title: 'Machine Learning' },
+    { node: <div className="skill-logo">NLP (Transformers/NER)</div>, title: 'NLP (Transformers/NER)' },
+    { node: <div className="skill-logo">Model Evaluation</div>, title: 'Model Evaluation' },
+    { node: <div className="skill-logo">Data Engineering</div>, title: 'Data Engineering' },
     { node: <div className="skill-logo">Python</div>, title: 'Python' },
-    { node: <div className="skill-logo">React</div>, title: 'React' },
-    { node: <div className="skill-logo">Machine Learning</div>, title: 'Machine Learning' }
+    { node: <div className="skill-logo">SQL</div>, title: 'SQL' },
+    { node: <div className="skill-logo">Prolog</div>, title: 'Prolog' },
+    { node: <div className="skill-logo">Secure API Design</div>, title: 'Secure API Design' },
+    { node: <div className="skill-logo">JWT Security</div>, title: 'JWT Security' },
+    { node: <div className="skill-logo">Git & Linux</div>, title: 'Git & Linux' },
+    { node: <div className="skill-logo">Tableau / Streamlit</div>, title: 'Tableau / Streamlit' }
   ];
 
-  // Project items list with direct URLs
+  // Project items list with direct URLs and concise narratives
   const projectItems = [
-    { title: 'GSCC (Game System Compatibility Checker)', url: 'https://iridescent-rolypoly-782dae.netlify.app/' },
-    { title: 'Attendance, Salary, PF, and Performance Tracker', url: 'https://wmsms.vercel.app/' },
-          { icon: theme === 'light'
-              ? <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 3a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm9-4h-1a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2zM4 13H3a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2zm13.657 5.657-0.707-0.707a1 1 0 1 1 1.414-1.414l0.707 0.707a1 1 0 1 1-1.414 1.414zM5.636 6.343 4.93 5.636A1 1 0 0 1 6.343 4.22l0.707 0.707A1 1 0 0 1 5.636 6.343zm12.021-1.414-0.707 0.707A1 1 0 1 1 15.536 4.22l0.707-0.707a1 1 0 1 1 1.414 1.414zM7.05 18.364l-0.707 0.707A1 1 0 1 1 4.93 17.657l0.707-0.707A1 1 0 0 1 7.05 18.364z"/></svg>
-              : <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>,
-            label: theme === 'light' ? 'Light' : 'Dark',
-            onClick: toggleTheme },
-    { title: 'Moody News', url: 'https://moody-news.vercel.app/' },
-    { title: 'NEL (Named Entity Linking)', url: 'https://nel-by-ms.netlify.app/' },
-    { title: 'QuantumShield Firewall', url: 'https://fire-wall.netlify.app/' },
-    { title: 'All RounderAPI (Surreal API Key Generator)', url: 'https://allrounder-api.netlify.app/' },
-    { title: 'Traffic Management Wizard', url: 'https://gregarious-buttercream-270467.netlify.app/' },
-    { title: 'Text Analyzer Pro', url: 'https://analyzetex.netlify.app/' },
-    { title: 'CardioDetect', url: 'https://dlqmwdpj.manus.space/' },
-    { title: 'Face Mask Detection with Deep Learning', url: 'https://xlhyimcjxn0d.manus.space/' },
-    { title: 'Customer Churn Prediction', url: 'https://app--clay-shop-1f50815c.base44.app/' },
-    { title: 'Music Genre Classification', url: 'https://genre-classifyer.netlify.app/' },
-    { title: 'E-Commerce Product Recommendation System', url: 'https://ss-analysis-ms.netlify.app/' },
-    { title: 'Sentiment Analysis on Social Media', url: 'https://msfacify.netlify.app/' },
-    { title: 'Spam Mail Analyzer', url: 'https://app--cosmic-guard-30c712d6.base44.app/' },
-    { title: 'SmartCity IoT', url: 'https://splendid-pika-249aa2.netlify.app/' },
-    { title: 'Life Goal Unleashed (Life Pattern Analyzer)', url: 'https://lifexly.netlify.app/' },
-    { title: 'SocialStarX', url: 'https://dynamic-flan-4984b0.netlify.app/#l' },
-    { title: 'ReactNative', url: 'https://reactnativeproject.lovable.app/' },
-    { title: 'X Analytics', url: 'https://market-analytics.netlify.app/' },
-    { title: 'CredWise', url: 'https://cardx.lovable.app/' },
-    { title: 'FintechAnalytics', url: 'https://fintechanalytics.vercel.app/' },
-    { title: 'SalesAnalytics', url: 'https://stately-starship-297297.netlify.app/' },
-    { title: 'msGPT', url: 'https://gptbymayank.lovable.app/' }
+    {
+      title: 'JWT Authentication Vulnerability Analysis',
+      url: 'https://fire-wall.netlify.app/',
+      description: 'HS256 misconfig audit → privilege escalation path documented; security-by-design takeaways.'
+    },
+    {
+      title: 'GSCC (Game System Compatibility Checker)',
+      url: 'https://iridescent-rolypoly-782dae.netlify.app/',
+      description: 'Rule-based scoring + heuristics to validate game hardware/software readiness with actionable flags.'
+    },
+    {
+      title: 'Customer Churn Prediction',
+      url: 'https://app--clay-shop-1f50815c.base44.app/',
+      description: 'Streamlit ML app with calibrated probabilities; highlights top churn drivers for retention teams.'
+    },
+    {
+      title: 'Named Entity Linking (NEL)',
+      url: 'https://nel-by-ms.netlify.app/',
+      description: 'NLP pipeline linking entities to knowledge base entries; evaluates precision/recall with examples.'
+    },
+    {
+      title: 'Attendance, Salary, PF, Performance Tracker',
+      url: 'https://wmsms.vercel.app/',
+      description: 'Operational dashboard with role-based access, payroll computations, and anomaly surfacing.'
+    },
+    {
+      title: 'CardioDetect',
+      url: 'https://dlqmwdpj.manus.space/',
+      description: 'Risk stratification model; focuses on interpretability with feature importance overlays.'
+    },
+    {
+      title: 'Text Analyzer Pro',
+      url: 'https://analyzetex.netlify.app/',
+      description: 'NLP workbench for sentiment, readability, and entity extraction with transparent outputs.'
+    },
+    {
+      title: 'E-Commerce Recommendation System',
+      url: 'https://ss-analysis-ms.netlify.app/',
+      description: 'Hybrid recommenders (content + collaborative) benchmarked on relevance and diversity.'
+    },
+    {
+      title: 'Spam Mail Analyzer',
+      url: 'https://app--cosmic-guard-30c712d6.base44.app/',
+      description: 'Email classification with feature explanations to reduce false positives for ops teams.'
+    },
+    {
+      title: 'SmartCity IoT',
+      url: 'https://splendid-pika-249aa2.netlify.app/',
+      description: 'Sensor data ingestion + alerting; simulates edge-to-cloud pipeline with simple dashboards.'
+    },
+    {
+      title: 'Life Pattern Analyzer',
+      url: 'https://lifexly.netlify.app/',
+      description: 'Behavioral pattern mining; surfaces routines and deviations with privacy-aware summaries.'
+    },
+    {
+      title: 'msGPT',
+      url: 'https://gptbymayank.lovable.app/',
+      description: 'Lightweight LLM front-end with guardrails and prompt templates for repeatable outputs.'
+    }
   ];
 
   useEffect(() => {
@@ -141,8 +174,10 @@ function App() {
         duration={500}
         easing="ease-out"
         extraScale={1.2}
+        ariaLabel="Interactive spark effect"
       >
         <Galaxy 
+          ariaLabel="Background starfield animation"
           focal={[0.5, 0.5]}
           rotation={[1.0, 0.0]}
           starSpeed={0.5}
@@ -179,29 +214,66 @@ function App() {
       />
 
       <div className="content-wrapper">
+        {/* Hero Section */}
+        <section id="hero" className="hero">
+          <div className="container">
+            <div className="hero-content">
+              <div className="hero-badge">AI & Data Systems Engineer · Secure & Explainable Intelligence</div>
+              <h1 className="hero-title">
+                I build secure, explainable, data-driven systems that turn complex problems into clear decisions.
+              </h1>
+              <p className="hero-subtitle">IIT Jodhpur · AI & Data Engineering</p>
+              <div className="hero-buttons">
+                <a
+                  href="#projects"
+                  className="btn-primary"
+                  onClick={(e) => handleSmoothScroll(e, '#projects')}
+                >
+                  View Projects
+                </a>
+                <a
+                  href="/Mayank_Sharma_Resume.pdf"
+                  className="btn-secondary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download Resume
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* About Section */}
         <section id="about" className="about">
           <div className="container">
+            <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>About</h2>
             <div style={{ height: '120px', marginBottom: '2rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <div style={{ textAlign: 'center' }}>
-                <h1
+                <h2
                   className="home-name"
                   style={{ margin: 0, lineHeight: 1 }}
                   aria-label="Mayank Sharma"
                 >
                   MAYANK SHARMA
-                </h1>
+                </h2>
                 <h2
                   className="home-role"
                   style={{ marginTop: '0.5rem', fontSize: '1.15rem', fontWeight: 600, color: 'var(--text-secondary)' }}
                 >
-                  Data Scientist &amp; Full-Stack Developer
+                  AI &amp; Data Systems Engineer · IIT Jodhpur
                 </h2>
               </div>
             </div>
             <div className="about-text about-intro">
               <div className="about-text">
-                <p>Meet Mayank Sharma, Student at IIT JODHPUR. He is passionate about tech fond of AI and Data. Skilled in Data Analysis and Artificial Intelligence. The Extraordinary!</p>
+                <p>I build secure, explainable AI and data systems that convert raw signals into decision-ready insights. My work blends theory with implementation—covering model design, evaluation, and the security surfaces that make production systems trustworthy.</p>
+                <p>I enjoy translating research into deployable, interpretable products: from expert systems and NLP utilities to security analyses like JWT hardening. Outcome-first, with guardrails and clarity.</p>
+              </div>
+              <div className="pill-row">
+                <span className="pill">Secure &amp; explainable AI</span>
+                <span className="pill">Data pipelines to decisions</span>
+                <span className="pill">Responsible disclosure mindset</span>
               </div>
               <div className="skills-carousel">
                 <LogoLoop 
@@ -232,6 +304,17 @@ function App() {
                 enableMagnetism={true}
               />
             </div>
+            <div className="foundations">
+              <h3>Foundations</h3>
+              <p className="section-description" style={{ marginBottom: '1.5rem' }}>Grounded in algorithms and reasoning that make systems reliable.</p>
+              <div className="pill-row">
+                <span className="pill">Optimization Techniques</span>
+                <span className="pill">Game Theory</span>
+                <span className="pill">Search &amp; Heuristics</span>
+                <span className="pill">Knowledge Representation</span>
+                <span className="pill">Bayesian Reasoning</span>
+              </div>
+            </div>
             <div className="social-links">
               <a href="https://github.com/mayank-iitj" target="_blank" rel="noopener noreferrer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
@@ -257,7 +340,8 @@ function App() {
         />
         <section id="projects" className="projects">
           <div className="container">
-            <h2 className="section-subtitle">Recent Works</h2>
+            <h2 className="section-subtitle">Impactful Projects</h2>
+            <p className="section-description">Each project is framed with problem, why it matters, approach, tools, outcome, and key learning.</p>
           </div>
         </section>
 
@@ -265,13 +349,21 @@ function App() {
         <section id="gallery" className="gallery-section">
           <div className="container">
             <h2 className="section-title">Project Gallery</h2>
-            <p className="section-description">Explore a curated collection of my work and creative projects.</p>
+            <p className="section-description">Explore AI, data, and security builds with transparent narratives.</p>
+            <div className="project-framework">
+              <h3>How I present work</h3>
+              <ul>
+                <li>Problem &amp; why it matters</li>
+                <li>Approach &amp; tools</li>
+                <li>Outcome (metrics/insight) &amp; key learning</li>
+              </ul>
+            </div>
           </div>
           <InfiniteMenu 
             items={projectItems.map(p => ({
               image: 'https://picsum.photos/seed/' + encodeURIComponent(p.title) + '/800/600?grayscale',
               title: p.title,
-              description: '',
+              description: p.description,
               link: p.url
             }))}
           />
@@ -280,8 +372,8 @@ function App() {
         {/* Innovations Section */}
         <section id="innovations" className="innovations-section">
           <div className="container">
-            <h2 className="section-title">Innovations</h2>
-            <p className="section-description">Selected ML utilities and experiments with quick links.</p>
+            <h2 className="section-title">Innovations: AI, Data, Security</h2>
+            <p className="section-description">Selected ML/NLP utilities and security experiments with quick links.</p>
             <div style={{ display: 'grid', placeItems: 'center', width: '100%', overflow: 'hidden' }}>
               <Carousel
                 baseWidth={340}
@@ -333,8 +425,8 @@ function App() {
         {/* Process Section */}
         <section id="process" className="process">
           <div className="container">
-            <h2 className="section-title">Process</h2>
-            <p className="section-description">crafting bold visuals that inspire and elevate brands with thought process.</p>
+            <h2 className="section-title">Process: From Data to Decisions</h2>
+            <p className="section-description">From problem framing to secure, explainable delivery. Outcome-first, with guardrails.</p>
             <div className="process-buttons">
               <a href="https://github.com/Mayank-iitj" className="btn-secondary" target="_blank" rel="noopener noreferrer">Github</a>
               <a href="https://github.com/Mayank-iitj" className="btn-secondary" target="_blank" rel="noopener noreferrer">See Projects</a>
@@ -343,22 +435,22 @@ function App() {
               <GlareHover width="100%" height="100%" background="transparent" borderRadius="30px" borderColor="var(--border-color)" glareColor="#6366f1" glareOpacity={0.3}>
                 <div className="step-card">
                   <div className="step-number">1</div>
-                  <h3>Define Your Vision</h3>
-                  <p>Find the perfect plan tailored to your needs, offering the right balance of features, flexibility, and value to help you achieve your goals effortlessly.</p>
+                  <h3>Frame the problem</h3>
+                  <p>Clarify the real-world problem, success metrics, constraints, and the security/ethics boundaries before shipping anything.</p>
                 </div>
               </GlareHover>
               <GlareHover width="100%" height="100%" background="transparent" borderRadius="30px" borderColor="var(--border-color)" glareColor="#6366f1" glareOpacity={0.3}>
                 <div className="step-card">
                   <div className="step-number">2</div>
-                  <h3>Submit Your Request</h3>
-                  <p>Easily submit your design requirements through our private design portal, ensuring a seamless process where your vision is understood, refined, and brought to life with precision and creativity.</p>
+                  <h3>Build &amp; validate</h3>
+                  <p>Design data pipelines and models; validate with evaluation plans, ablations, and explainability to keep stakeholders in the loop.</p>
                 </div>
               </GlareHover>
               <GlareHover width="100%" height="100%" background="transparent" borderRadius="30px" borderColor="var(--border-color)" glareColor="#6366f1" glareOpacity={0.3}>
                 <div className="step-card">
                   <div className="step-number">3</div>
-                  <h3>Project Delivered</h3>
-                  <p>As a dedicated freelancer, I ensure your project is completed with precision and delivered within 2-3 days. With a keen eye for detail and a passion for quality, I bring your vision to life—on time and beyond expectations.</p>
+                  <h3>Ship with guardrails</h3>
+                  <p>Deploy with documentation, security hardening, and clear learnings so the system can be trusted and iterated safely.</p>
                 </div>
               </GlareHover>
             </div>
@@ -368,23 +460,23 @@ function App() {
         {/* Services Section */}
         <section id="services" className="services">
           <div className="container">
-            <h2 className="section-title">Services</h2>
-            <p className="section-description">Helping businesses standout with brand identity packaging that captivates and converts effectively.</p>
+            <h2 className="section-title">Services: AI, Data, Security</h2>
+            <p className="section-description">AI, data, and security work that ships with clarity and explainability.</p>
             <div className="services-grid">
               <GlareHover width="auto" height="auto" background="transparent" borderRadius="50px" borderColor="var(--border-color)" glareColor="#8b5cf6" glareOpacity={0.35}>
-                <div className="service-card">Data Analysis</div>
+                <div className="service-card">AI &amp; Data Engineering</div>
               </GlareHover>
               <GlareHover width="auto" height="auto" background="transparent" borderRadius="50px" borderColor="var(--border-color)" glareColor="#8b5cf6" glareOpacity={0.35}>
-                <div className="service-card">Data Engineering</div>
+                <div className="service-card">Modeling &amp; Evaluation</div>
               </GlareHover>
               <GlareHover width="auto" height="auto" background="transparent" borderRadius="50px" borderColor="var(--border-color)" glareColor="#8b5cf6" glareOpacity={0.35}>
-                <div className="service-card">AI Engineer</div>
+                <div className="service-card">NLP (NER/Transformers)</div>
               </GlareHover>
               <GlareHover width="auto" height="auto" background="transparent" borderRadius="50px" borderColor="var(--border-color)" glareColor="#8b5cf6" glareOpacity={0.35}>
-                <div className="service-card">Logo Designing</div>
+                <div className="service-card">Security Reviews (JWT/API)</div>
               </GlareHover>
               <GlareHover width="auto" height="auto" background="transparent" borderRadius="50px" borderColor="var(--border-color)" glareColor="#8b5cf6" glareOpacity={0.35}>
-                <div className="service-card">FrontEnd Dev</div>
+                <div className="service-card">Dashboards &amp; Reporting</div>
               </GlareHover>
             </div>
             <div className="services-buttons">
@@ -394,33 +486,33 @@ function App() {
             <div className="services-list">
               <div className="services-column">
                 <GlareHover width="100%" height="auto" background="transparent" borderRadius="20px" borderColor="var(--border-color)" glareColor="#6366f1" glareOpacity={0.4}>
-                  <div className="service-item-large">Data Analytics</div>
+                  <div className="service-item-large">Model Evaluation &amp; Monitoring</div>
                 </GlareHover>
                 <GlareHover width="100%" height="auto" background="transparent" borderRadius="20px" borderColor="var(--border-color)" glareColor="#6366f1" glareOpacity={0.4}>
-                  <div className="service-item-large">Wix</div>
+                  <div className="service-item-large">MLOps Pipelines</div>
                 </GlareHover>
               </div>
               <div className="services-column">
                 <GlareHover width="100%" height="auto" background="transparent" borderRadius="20px" borderColor="var(--border-color)" glareColor="#6366f1" glareOpacity={0.4}>
-                  <div className="service-item-large">AI Agent Development</div>
+                  <div className="service-item-large">LLM Guardrails &amp; Prompting</div>
                 </GlareHover>
                 <GlareHover width="100%" height="auto" background="transparent" borderRadius="20px" borderColor="var(--border-color)" glareColor="#6366f1" glareOpacity={0.4}>
-                  <div className="service-item-large">Machine Learning</div>
+                  <div className="service-item-large">Security &amp; Risk Reviews</div>
                 </GlareHover>
               </div>
             </div>
             <div className="services-tags">
-              <span className="tag">Slide Decks</span>
-              <span className="tag">Copywriting</span>
-              <span className="tag">Brand Graphics</span>
-              <span className="tag">Brand Migration</span>
-              <span className="tag">Package Design</span>
-              <span className="tag">Branding</span>
-              <span className="tag">Optimization</span>
-              <span className="tag">Brand Landing Pages</span>
-              <span className="tag">Social Media</span>
-              <span className="tag">Icons</span>
-              <span className="tag">Brand Visibility</span>
+              <span className="tag">Evaluation Plans</span>
+              <span className="tag">Explainability</span>
+              <span className="tag">Data Quality</span>
+              <span className="tag">Security Hardening</span>
+              <span className="tag">Streamlit</span>
+              <span className="tag">Tableau</span>
+              <span className="tag">LLM Guardrails</span>
+              <span className="tag">Prompt Engineering</span>
+              <span className="tag">Observability</span>
+              <span className="tag">Ablations</span>
+              <span className="tag">Responsible Disclosure</span>
             </div>
           </div>
         </section>
@@ -428,7 +520,7 @@ function App() {
         {/* Reviews Section */}
         <section id="testimonials" className="reviews">
           <div className="container">
-            <h2 className="section-title">Client Reviews</h2>
+            <h2 className="section-title">Client Reviews & Outcomes</h2>
             <p className="section-description">Real feedback from clients who trusted my design expertise to elevate their brands successfully.</p>
             <div className="review-buttons">
               <a href="https://www.linkedin.com/in/mayankiitj" className="btn-primary" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
@@ -503,7 +595,7 @@ function App() {
         {/* CTA Section */}
         <section id="contact" className="cta">
           <div className="container">
-            <h2>Curious about what we can create together? Let's bring something extraordinary to life!</h2>
+            <h2>Need secure, explainable AI or data systems? Let's design and ship them responsibly.</h2>
             <div className="cta-buttons">
               <a href="https://www.linkedin.com/in/mayankiitj" className="btn-primary" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
             </div>
