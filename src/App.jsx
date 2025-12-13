@@ -166,31 +166,32 @@ function App() {
 
   return (
     <>
+      {/* Subtle motion: reduced intensity for performance */}
       <ClickSpark
         sparkColor="#6366f1"
-        sparkSize={12}
-        sparkRadius={25}
-        sparkCount={12}
-        duration={500}
+        sparkSize={8}
+        sparkRadius={18}
+        sparkCount={8}
+        duration={380}
         easing="ease-out"
-        extraScale={1.2}
+        extraScale={1.0}
         ariaLabel="Interactive spark effect"
       >
         <Galaxy 
           ariaLabel="Background starfield animation"
           focal={[0.5, 0.5]}
-          rotation={[1.0, 0.0]}
-          starSpeed={0.5}
-          density={1}
-          hueShift={140}
-          speed={1.0}
+          rotation={[0.6, 0.0]}
+          starSpeed={0.35}
+          density={0.8}
+          hueShift={120}
+          speed={0.8}
           mouseInteraction={true}
-          glowIntensity={0.5}
-          saturation={0.3}
+          glowIntensity={0.35}
+          saturation={0.25}
           mouseRepulsion={true}
-          repulsionStrength={2}
-          twinkleIntensity={0.3}
-          rotationSpeed={0.05}
+          repulsionStrength={1.5}
+          twinkleIntensity={0.22}
+          rotationSpeed={0.03}
           transparent={true}
         />
       </ClickSpark>
@@ -218,9 +219,9 @@ function App() {
         <section id="hero" className="hero">
           <div className="container">
             <div className="hero-content">
-              <div className="hero-badge">AI & Data Systems Engineer · Secure & Explainable Intelligence</div>
+              <div className="hero-badge">AI Engineer & Data Scientist · Secure & Explainable Intelligence</div>
               <h1 className="hero-title">
-                I build secure, explainable, data-driven systems that turn complex problems into clear decisions.
+                Mayank Sharma – AI Engineer & Data Scientist
               </h1>
               <p className="hero-subtitle">IIT Jodhpur · AI & Data Engineering</p>
               <div className="hero-buttons">
@@ -240,6 +241,23 @@ function App() {
                   View Resume
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Proof Section */}
+        <section id="proof" className="proof">
+          <div className="container">
+            <h2 className="section-title">Proof of Expertise</h2>
+            <p className="section-description">Selected metrics, links, and artifacts demonstrating reliability and impact.</p>
+            <div className="proof-grid">
+              <div className="proof-item"><strong>0.86 AUC</strong> – Calibrated churn model with interpretable drivers.</div>
+              <div className="proof-item"><strong>80% risk reduction</strong> – JWT misconfig escalation path closed.</div>
+              <div className="proof-item"><strong>Production demos</strong> – Live apps with guardrails and monitoring.</div>
+            </div>
+            <div className="hero-buttons">
+              <a href="/projects" className="btn-primary">View Case Studies</a>
+              <a href="/blog" className="btn-secondary">Read Engineering Notes</a>
             </div>
           </div>
         </section>
@@ -342,6 +360,23 @@ function App() {
           <div className="container">
             <h2 className="section-subtitle">Impactful Projects</h2>
             <p className="section-description">Each project is framed with problem, why it matters, approach, tools, outcome, and key learning.</p>
+            <div className="featured-cases">
+              <article className="case">
+                <h3>JWT Authentication Vulnerability Analysis</h3>
+                <p>Problem: HS256 misconfiguration enabled token forgery. Approach: middleware audit, signature verification, secret rotation. Result: 80% risk reduction with documented guardrails.</p>
+                <div className="case-ctas"><a href="/projects/jwt-auth-vulnerability" className="btn-secondary">Read case study</a></div>
+              </article>
+              <article className="case">
+                <h3>Customer Churn Prediction</h3>
+                <p>Problem: Target retention with calibrated probabilities. Approach: feature engineering, calibrated classifier, interpretability. Result: AUC 0.86, actionable drivers for retention.</p>
+                <div className="case-ctas"><a href="/projects/customer-churn-prediction" className="btn-secondary">Read case study</a></div>
+              </article>
+              <article className="case">
+                <h3>Named Entity Linking (NEL)</h3>
+                <p>Problem: Accurate mapping to KB entries. Approach: candidate generation and ranking. Result: high precision with transparent examples and evaluation.</p>
+                <div className="case-ctas"><a href="/projects/named-entity-linking" className="btn-secondary">Read case study</a></div>
+              </article>
+            </div>
           </div>
         </section>
 
@@ -361,15 +396,26 @@ function App() {
           </div>
           <InfiniteMenu 
             items={projectItems.map(p => ({
-              image: 'https://picsum.photos/seed/' + encodeURIComponent(p.title) + '/800/600?grayscale',
+              image: 'https://picsum.photos/seed/' + encodeURIComponent(p.title.toLowerCase().replace(/\s+/g,'-')) + '/800/600?grayscale',
               title: p.title,
               description: p.description,
-              link: p.url
+              link: p.url,
+              alt: `${p.title} project thumbnail`
             }))}
           />
         </section>
 
         {/* Resume Section intentionally removed; opens via View Resume in new tab */}
+        <section id="ctas" className="ctas-section">
+          <div className="container">
+            <h2 className="section-title">Get in Touch</h2>
+            <p>For collaborations, research, or engineering roles, reach out via the contact page or connect on LinkedIn.</p>
+            <div className="hero-buttons">
+              <a href="/contact" className="btn-primary">Contact</a>
+              <a href="/privacy" className="btn-secondary">Privacy Policy</a>
+            </div>
+          </div>
+        </section>
 
         {/* Innovations Section */}
         <section id="innovations" className="innovations-section">
@@ -620,6 +666,23 @@ function App() {
           </div>
         </section>
       </div>
+
+      <footer className="site-footer">
+        <div className="container footer-grid">
+          <div>
+            <strong>Mayank Sharma</strong> – AI Engineer & Data Scientist
+            <div>IIT Jodhpur</div>
+          </div>
+          <div className="footer-links">
+            <a href="https://github.com/mayank-iitj" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/mayankiitj" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="/projects">Projects</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy</a>
+          </div>
+        </div>
+      </footer>
 
       <Dock
         items={[

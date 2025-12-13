@@ -40,7 +40,7 @@ const DEFAULT_ITEMS = [
 const DRAG_BUFFER = 0;
 const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
-const SPRING_OPTIONS = { type: 'spring', stiffness: 300, damping: 30 };
+const SPRING_OPTIONS = { type: 'spring', stiffness: 500, damping: 22 };
 
 function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, transition }) {
   const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
@@ -92,7 +92,7 @@ export default function Carousel({
   items = DEFAULT_ITEMS,
   baseWidth = 300,
   autoplay = false,
-  autoplayDelay = 3000,
+  autoplayDelay = 1600,
   pauseOnHover = false,
   loop = false,
   round = false
