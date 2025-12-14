@@ -630,7 +630,7 @@ function App() {
                 <p>Client satisfaction rate.</p>
               </div>
               <div className="stat-item">
-                <h3>15+</h3>
+                <h3>Newbie</h3>
                 <p>Years of experience</p>
               </div>
             </div>
