@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "lint": "eslint src --ext .js,.jsx"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
