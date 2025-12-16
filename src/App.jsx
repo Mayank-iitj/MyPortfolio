@@ -13,6 +13,7 @@ import PillNav from './PillNav';
 import './App.css';
 import './CardShine.css';
 import Carousel from './Carousel';
+import { EXPERIENCE_VALUE, EXPERIENCE_UNIT_CAPITALIZED, EXPERIENCE_LABEL } from './constants/experience';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -629,9 +630,9 @@ function App() {
                 <h3>96%</h3>
                 <p>Client satisfaction rate.</p>
               </div>
-              <div className="stat-item">
-                <h3>15+ Months</h3>
-                <p>Months of experience</p>
+              <div className="stat-item" data-testid="experience-stat">
+                <h3 data-testid="experience-value">{EXPERIENCE_VALUE} {EXPERIENCE_UNIT_CAPITALIZED}</h3>
+                <p data-testid="experience-label">{EXPERIENCE_LABEL}</p>
               </div>
             </div>
           </div>
