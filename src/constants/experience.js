@@ -21,8 +21,9 @@ export const getFormattedExperience = () => {
 
 /**
  * Validation: Ensure unit and label are semantically consistent
+ * Only runs in development to avoid console pollution in production
  */
-if (!EXPERIENCE_LABEL.toLowerCase().includes(EXPERIENCE_UNIT.toLowerCase())) {
+if (import.meta.env.DEV && !EXPERIENCE_LABEL.toLowerCase().includes(EXPERIENCE_UNIT.toLowerCase())) {
   console.warn(
     `⚠️ Semantic inconsistency: EXPERIENCE_LABEL "${EXPERIENCE_LABEL}" doesn't match EXPERIENCE_UNIT "${EXPERIENCE_UNIT}"`
   );
