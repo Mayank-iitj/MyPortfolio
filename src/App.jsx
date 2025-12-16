@@ -631,7 +631,7 @@ function App() {
               </div>
               <div className="stat-item">
                 <h3>15+ Months</h3>
-                <p>Years of experience</p>
+                <p>Months of experience</p>
               </div>
             </div>
           </div>
