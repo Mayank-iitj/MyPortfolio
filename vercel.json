@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "routes": [
-    { "src": "/robots.txt", "dest": "/robots.txt" },
-    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
-    { "src": "/CNAME", "dest": "/CNAME" },
-    { "src": "/(.*)\\.(js|css|png|jpg|jpeg|webp|svg|ico|txt|xml)$", "dest": "/$1.$2" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/CNAME", "destination": "/CNAME" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
