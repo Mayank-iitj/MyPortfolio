@@ -129,7 +129,6 @@ export default function Project() {
               alt={`${data.title.toLowerCase().replace(/\s+/g,'-')}-screenshot`} 
               loading="lazy" 
               decoding="async"
-              onError={(e) => { e.target.style.display = 'none'; }}
             />
           </picture>
         ))}

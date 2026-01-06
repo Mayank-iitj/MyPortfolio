@@ -10,39 +10,39 @@ const MOBILE_BREAKPOINT = 768;
 const cardData = [
   {
     color: '#060010',
-    title: 'AI & ML',
-    description: '2+ years building intelligent systems',
-    label: 'Experience'
+    title: 'Analytics',
+    description: 'Track user behavior',
+    label: 'Insights'
   },
   {
     color: '#060010',
-    title: 'Data Engineering',
-    description: 'End-to-end pipeline development',
-    label: 'Expertise'
+    title: 'Dashboard',
+    description: 'Centralized data view',
+    label: 'Overview'
   },
   {
     color: '#060010',
-    title: 'NLP & Transformers',
-    description: 'NER, entity linking, text analysis',
-    label: 'Specialization'
+    title: 'Collaboration',
+    description: 'Work together seamlessly',
+    label: 'Teamwork'
   },
   {
     color: '#060010',
-    title: 'Security Analysis',
-    description: 'JWT hardening & vulnerability audits',
-    label: 'Focus Area'
+    title: 'Automation',
+    description: 'Streamline workflows',
+    label: 'Efficiency'
   },
   {
     color: '#060010',
-    title: 'Model Evaluation',
-    description: 'Calibration, explainability, metrics',
-    label: 'Core Skill'
+    title: 'Integration',
+    description: 'Connect favorite tools',
+    label: 'Connectivity'
   },
   {
     color: '#060010',
-    title: 'IIT Jodhpur',
-    description: 'AI & Data Systems Research',
-    label: 'Education'
+    title: 'Security',
+    description: 'Enterprise-grade protection',
+    label: 'Protection'
   }
 ];
 

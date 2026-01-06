@@ -9,7 +9,6 @@ import Post from './routes/Post.jsx'
 import './App.css'
 import Contact from './routes/Contact.jsx'
 import Privacy from './routes/Privacy.jsx'
-import NotFound from './routes/NotFound.jsx'
 
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
@@ -19,7 +18,6 @@ const router = createBrowserRouter([
   { path: '/blog/:slug', element: <Post /> },
   { path: '/contact', element: <Contact /> },
   { path: '/privacy', element: <Privacy /> },
-  { path: '*', element: <NotFound /> },
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
