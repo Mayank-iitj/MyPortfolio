@@ -269,6 +269,43 @@ body.theme-light {
     }
 }
 
+/* Proof Section */
+.proof {
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.proof-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem auto 3rem;
+    max-width: 800px;
+}
+
+.proof-item {
+    padding: 1rem 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: var(--transition);
+    width: 100%;
+    max-width: 600px;
+}
+
+.proof-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.proof-item strong {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
 /* About Section */
 .about {
     padding: 8rem 0;
