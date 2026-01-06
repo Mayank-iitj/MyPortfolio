@@ -21,5 +21,5 @@ const entries = staticUrls.map(path => `  <url>\n    <loc>${base}${path}</loc>\n
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
 
-writeFileSync('dist/sitemap.xml', xml, 'utf-8');
-console.log('Sitemap generated: dist/sitemap.xml');
+writeFileSync('public/sitemap.xml', xml, 'utf-8');
+console.log('Sitemap generated: public/sitemap.xml');
