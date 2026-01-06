@@ -124,12 +124,7 @@ export default function Project() {
         {data.screenshots.map((src) => (
           <picture key={src}>
             <source srcSet={src} type="image/webp" />
-            <img 
-              src={src} 
-              alt={`${data.title.toLowerCase().replace(/\s+/g,'-')}-screenshot`} 
-              loading="lazy" 
-              decoding="async"
-            />
+            <img src={src} alt={`${data.title.toLowerCase().replace(/\s+/g,'-')}-screenshot`} loading="lazy" decoding="async" />
           </picture>
         ))}
       </section>
